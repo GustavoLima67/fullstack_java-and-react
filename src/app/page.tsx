@@ -24,7 +24,11 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Lista de Usuários</h1>
+
+      <div className="bg-blue-300 h-3/6 w-3/6">
+
+      </div>
+      
       <ul>
         {usuarios.map(usuario => (
           <li key={usuario.id}>{usuario.nome}</li>
