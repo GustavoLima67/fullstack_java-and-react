@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className="body">
 
-      <div className="container-main">
+      <div className="container-inform">
         <h1 className="welcome">BEM VINDO!</h1>
 
         <div className="project-area">
@@ -35,6 +35,40 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="container-list">
+        <div className="cards-view">
+          <div className="list-users">
+            <div className="card-text-users">
+              <h1>USUARIOS CADASTRADOS</h1>
+              
+            </div>
+          </div>
+          <div className="list-admins">
+            <h1>MODERADORES PRESENTES</h1>
+          </div>
+        </div>
+        <div className="card-users">
+          <div className="users">
+            <div className="user-1">
+              <h1>Gustavo</h1>
+            </div>
+            <div className="user-2">
+              <h1>Lucas</h1>
+            </div>
+            <div className="user-3">
+              <h1>Josivani</h1>
+            </div>
+            <div className="user-4">
+              <h1>Thiago</h1>
+            </div>
+            <div className="user-5">
+              <h1>Dhuane</h1>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
       <ul>
         {usuarios.map(usuario => (
           <li key={usuario.id}>{usuario.nome}</li>

@@ -7,7 +7,7 @@
     overflow-x: hidden;
 }
 
-.container-main {
+.container-inform {
     background-color: #93CFD1;
     height: 10vh;
     width: 100%;
@@ -39,4 +39,47 @@
     border-radius: 5px;
     cursor: pointer;
     margin-left: 50px;
+}
+
+.container-list {
+    font-size: 20px;
+    color: black;
+    border: 1px solid black;
+    margin: 50px 100px ;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-view {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.list-users {
+    background-color: #93CFD1;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.list-admins {
+    background-color: #93CFD1;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.card-users {
+    border: 1px solid black;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+}
+.users {
+    border: 1px solid black;
 }
