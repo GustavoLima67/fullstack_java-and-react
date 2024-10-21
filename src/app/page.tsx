@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container-list">
+      <div className="container-view">
         <div className="cards-view">
           <div className="list-users">
             <div className="card-text-users">
@@ -47,28 +47,42 @@ export default function Home() {
             <h1>MODERADORES PRESENTES</h1>
           </div>
         </div>
-        <div className="card-users">
-          <div className="users">
-            <div className="user-1">
-              <h1>Gustavo</h1>
+      </div>
+
+      <div className="container-monitor">
+        <div className="user-and-admin">
+          <div className="card-users">
+            <div className="users-model">
+              <div className="user-1">
+                <h1>Gustavo</h1>
+              </div>
+              <div className="user-2">
+                <h1>Lucas</h1>
+              </div>
+              <div className="user-3">
+                <h1>Josivani</h1>
+              </div>
+              <div className="user-4">
+                <h1>Thiago</h1>
+              </div>
+              <div className="user-5">
+                <h1>Dhuane</h1>
+              </div>
             </div>
-            <div className="user-2">
-              <h1>Lucas</h1>
+          
+          </div>
+          <div className="card-admins">
+            <div className="admin-1">
+              <h1>Alex M. Santos</h1>
             </div>
-            <div className="user-3">
-              <h1>Josivani</h1>
-            </div>
-            <div className="user-4">
-              <h1>Thiago</h1>
-            </div>
-            <div className="user-5">
-              <h1>Dhuane</h1>
+            <div className="admin-2">
+              <h1>Henrrique Silva</h1>
             </div>
           </div>
-          
         </div>
-        
       </div>
+     
+
       <ul>
         {usuarios.map(usuario => (
           <li key={usuario.id}>{usuario.nome}</li>

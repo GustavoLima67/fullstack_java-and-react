@@ -41,10 +41,9 @@
     margin-left: 50px;
 }
 
-.container-list {
+.container-view {
     font-size: 20px;
     color: black;
-    border: 1px solid black;
     margin: 50px 100px ;
     text-align: center;
     display: flex;
@@ -63,6 +62,7 @@
     background-color: #93CFD1;
     border: 1px solid black;
     padding: 20px;
+    text-align: center;
 }
 
 .list-admins {
@@ -71,15 +71,64 @@
     padding: 20px;
 }
 
-.card-users {
-    border: 1px solid black;
-    flex-direction: column;
-    display: flex;
+.container-monitor {
+    color: black;
+    align-items:center;
+    text-align: center;
     justify-content: center;
-    align-items: center;
-    padding: 40px;
+    display: flex;
+}
+
+.user-and-admin {
+    font-size: 20px;
+    display: flex;
+    gap: 60px;
+    justify-content: space-between;
 
 }
-.users {
+
+.card-users {
+    background-color: #93CFD1;
     border: 1px solid black;
+    padding: 90px;
+    text-align: center;
+    
+}
+
+.card-admins {
+    font-size: 20px;
+    background-color: #93CFD1;
+    border: 1px solid black;
+    padding: 90px;
+}
+
+.users-model {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-1 {
+    background-color: #578E8E;
+    padding: 10px;
+}
+
+.user-2 {
+    background-color: #578E8E;
+    padding: 10px;
+}
+
+.user-3 {
+    background-color: #578E8E;
+    padding: 10px;
+}
+
+.user-4 {
+    background-color: #578E8E;
+    padding: 10px;
+}
+
+.user-5 {
+    background-color: #578E8E;
+    padding: 10px;
 }
