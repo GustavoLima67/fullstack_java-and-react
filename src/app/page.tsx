@@ -27,13 +27,14 @@ export default function Home() {
     <div className="body">
 
       <div className="container-main">
-        <div className="bar-welcome">
-          <h1 className="welcome">BEM VINDO</h1>
+        <h1 className="welcome">BEM VINDO!</h1>
+
+        <div className="project-area">
           <h1 className="project">PROJETO CADASTRO</h1>
-          <button className="buttonMore"> SAIBA MAIS</button>
+          <button className="buttonMore">SAIBA MAIS</button>
         </div>
       </div>
-      
+
       <ul>
         {usuarios.map(usuario => (
           <li key={usuario.id}>{usuario.nome}</li>
