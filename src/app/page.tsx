@@ -90,6 +90,14 @@ export default function Home() {
               <div className="cadastre-what-is">
                 <h1>VOCÊ É USUARIO OU UM MODEREADOR?</h1>
               </div>
+              <div className="cdt-user_our_adm">
+                <div className="cdt-user">
+                  <button className="button-user">USUÁRIO</button>
+                </div>
+                <div className="cdt-adm">
+                  <button className="button-adm">MODERADOR</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
