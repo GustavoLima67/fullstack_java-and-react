@@ -47,45 +47,54 @@ export default function Home() {
             <h1>MODERADORES PRESENTES</h1>
           </div>
         </div>
-      </div>
 
-      <div className="container-monitor">
-        <div className="user-and-admin">
-          <div className="card-users">
-            <div className="users-model">
-              <div className="user-1">
-                <h1>Gustavo</h1>
-              </div>
-              <div className="user-2">
-                <h1>Lucas</h1>
-              </div>
-              <div className="user-3">
-                <h1>Josivani</h1>
-              </div>
-              <div className="user-4">
-                <h1>Thiago</h1>
-              </div>
-              <div className="user-5">
-                <h1>Dhuane</h1>
+        <div className="container-monitor">
+          <div className="user-view">
+            <div className="card-users">
+              <div className="users-model">
+                <div className="user-1">
+                  <h1>Gustavo L. Souza</h1>
+                </div>
+                <div className="user-2">
+                  <h1>Lucas L. Souza</h1>
+                </div>
+                <div className="user-3">
+                  <h1>Josivani L. Moura</h1>
+                </div>
+                <div className="user-4">
+                  <h1>Thiago M. Silva</h1>
+                </div>
+                <div className="user-5">
+                  <h1>Dhuane M. Silva</h1>
+                </div>
+                <div className="more">
+                  <button className="button-view-more">VER MAIS</button>
+                </div>
               </div>
             </div>
-          
           </div>
-          
-          <div className="card-admins">
 
-            <div className="admin-model">
-              <div className="admin-1">
-                <h1>Alex M. Santos</h1>
+          <div className="admins-and-cdt">
+            <div className="card-admins">
+              <div className="admin-model">
+                <div className="admin-1">
+                  <h1>Alex M. Santos</h1>
+                </div>
+                <div className="admin-2">
+                  <h1>Henrrique Silva</h1>
+                </div>
               </div>
-              <div className="admin-2">
-                <h1>Henrrique Silva</h1>
+            </div>
+
+            <div className="cadastre-user-adm">
+              <div className="cadastre-what-is">
+                <h1>VOCÊ É USUARIO OU UM MODEREADOR?</h1>
               </div>
             </div>
           </div>
         </div>
       </div>
-     
+
 
       <ul>
         {usuarios.map(usuario => (
