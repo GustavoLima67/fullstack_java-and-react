@@ -71,12 +71,16 @@ export default function Home() {
             </div>
           
           </div>
+          
           <div className="card-admins">
-            <div className="admin-1">
-              <h1>Alex M. Santos</h1>
-            </div>
-            <div className="admin-2">
-              <h1>Henrrique Silva</h1>
+
+            <div className="admin-model">
+              <div className="admin-1">
+                <h1>Alex M. Santos</h1>
+              </div>
+              <div className="admin-2">
+                <h1>Henrrique Silva</h1>
+              </div>
             </div>
           </div>
         </div>

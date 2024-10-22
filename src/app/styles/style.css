@@ -73,44 +73,63 @@
 
 .container-monitor {
     color: black;
-    align-items:center;
-    text-align: center;
     justify-content: center;
     display: flex;
 }
 
 .user-and-admin {
-    font-size: 20px;
+    font-size: 25px;
     display: flex;
-    gap: 60px;
+    gap: 50px;
     justify-content: space-between;
-
+ 
 }
 
 .card-users {
     background-color: #93CFD1;
     border: 1px solid black;
-    padding: 90px;
     text-align: center;
-    
+    padding: 30px 30px 60px;
 }
 
 .card-admins {
-    font-size: 20px;
+    
     background-color: #93CFD1;
     border: 1px solid black;
-    padding: 90px;
+    
+    padding: 30px 25px;
+    
+}
+
+.admin-model {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.admin-1 {
+    background-color: #578E8E;
+    padding: 10px 40px;
+}
+
+.admin-2 {
+    background-color: #578E8E;
+    padding: 10px 40px;
 }
 
 .users-model {
+    gap: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
 }
 
 .user-1 {
     background-color: #578E8E;
-    padding: 10px;
+    padding: 10px 70px;
 }
 
 .user-2 {
