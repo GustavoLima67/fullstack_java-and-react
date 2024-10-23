@@ -1,7 +1,9 @@
-export const Usuarios = () => {
+const Usuarios = () => {
     return(
         <div>
            <h1>Hello World</h1>
         </div>
     )
 }
+
+export default Usuarios;

@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { error } from "console";
+import axios, { get } from "axios";
+import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import "./styles/style.css";
 
 interface Usuarios {
@@ -11,6 +12,7 @@ interface Usuarios {
   senha: string;
   telefone: string;
   data_nascimento: Date;
+  onSubmit: () = void;
 }
 
 export default function Home() {
@@ -22,6 +24,9 @@ export default function Home() {
           .then(response => setUsuarios(response.data))
           .catch(error => console.error("Erro ao pegar usuarios", error));
   });
+
+
+  const handleClick: Usuarios[] = [{onSubmit: () => router.push('/usuarios')}];
 
   return (
     <div className="body">
@@ -92,7 +97,7 @@ export default function Home() {
               </div>
               <div className="cdt-user_our_adm">
                 <div className="cdt-user">
-                  <button className="button-user">USUÁRIO</button>
+                  <button onClick={handleClick}  className="button-user">USUÁRIO</button>
                 </div>
                 <div className="cdt-adm">
                   <button className="button-adm">MODERADOR</button>
