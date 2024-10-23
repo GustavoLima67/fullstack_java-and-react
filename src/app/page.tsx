@@ -4,18 +4,12 @@ import { useEffect, useState } from "react";
 import axios, { get } from "axios";
 import { useNavigate } from "react-router-dom";
 import { useRouter } from "next/navigation";
-import "./styles/style.css";
+import "./style.css";
+import { Usuarios } from "./interfaces/usuarios";
 
-interface Usuarios {
-  id: number;
-  nome: string;
-  senha: string;
-  telefone: string;
-  data_nascimento: Date;
-  onSubmit: () = void;
-}
 
 export default function Home() {
+  const router = useRouter();
   
   const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
 
@@ -25,8 +19,8 @@ export default function Home() {
           .catch(error => console.error("Erro ao pegar usuarios", error));
   });
 
-
-  const handleClick: Usuarios[] = [{onSubmit: () => router.push('/usuarios')}];
+  const clickUser = () => router.push("/examples/usuarios");
+  const clickModer = () => router.push("/examples/moderadores");
 
   return (
     <div className="body">
@@ -97,10 +91,10 @@ export default function Home() {
               </div>
               <div className="cdt-user_our_adm">
                 <div className="cdt-user">
-                  <button onClick={handleClick}  className="button-user">USUÁRIO</button>
+                  <button onClick={clickUser} className="button-user">USUÁRIO</button>
                 </div>
                 <div className="cdt-adm">
-                  <button className="button-adm">MODERADOR</button>
+                  <button onClick={clickModer} className="button-adm">MODERADOR</button>
                 </div>
               </div>
             </div>

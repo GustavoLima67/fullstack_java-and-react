@@ -1,0 +1,77 @@
+
+.body {
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.navbar-main {
+    background-color: #93CFD1;
+    height: 10vh;
+    padding-left: 20px;
+    color: black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
+}
+
+.texts-navbar {
+    background-color: #578e8e93;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.cadastre-user {
+    border: 1px solid black;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.inputs-and-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-new-user {
+    background-color: #93CFD1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+}
+
+.text-new-user {
+    font-size: 20px;
+}
+
+input {
+    padding: 2px 35px 2px 5px;
+}
+
+.button-cadastre {
+    border: 1px  solid black;
+    background-color: #578e8e93;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.obs {
+    font-size: 10px;
+    float: left;
+    flex-direction: column;
+    display: flex;
+    justify-content: left;
+}
