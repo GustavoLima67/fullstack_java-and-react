@@ -31,25 +31,28 @@
 }
 
 .cadastre-user {
-    border: 1px solid black;
     color: black;
     display: flex;
-    justify-content: space-between;
     padding: 20px;
+    gap: 60px;
+    justify-content: center;
 }
 
 .inputs-and-texts {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    justify-content: center;
 }
 
 .card-new-user {
+
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
     background-color: #93CFD1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    gap: 30px;
+    padding: 40px;
     align-items: center;
 }
 
@@ -59,6 +62,7 @@
 
 input {
     padding: 2px 35px 2px 5px;
+   
 }
 
 .button-cadastre {
@@ -66,12 +70,75 @@ input {
     background-color: #578e8e93;
     padding: 3px;
     border-radius: 5px;
+    margin-top: 30px;
+}
+
+.text-cadastre {
+    padding: 10px 40px;
 }
 
 .obs {
     font-size: 10px;
-    float: left;
+    text-align: left;
     flex-direction: column;
     display: flex;
     justify-content: left;
+}
+
+
+/*a partir daqui será CSS para estilizar o segundo Card principal - Exibir usuários ja cadastrado*/
+
+.read-user {
+    
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
+    background-color: #93CFD1;
+    padding: 30px 40px;   
+    flex-direction: column;
+    gap: 20px;
+    display: flex;
+}
+
+.text-users-read {
+    text-align: center;
+    font-size: 20px;
+}
+
+.inputs-read-user {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    background-color: #b5f0e393;
+    padding: 20px ;
+}
+
+.input-user-1 {
+    padding: 10px 60px;
+    background-color: #578e8e93;
+}
+
+.input-user-2 {
+    padding: 10px 60px;
+    background-color: #578e8e93;
+}
+
+.input-user-3 {
+    padding: 10px 60px;
+    background-color: #578e8e93;
+}
+
+.input-user-4 {
+    padding: 10px 60px;
+    background-color: #578e8e93;
+}
+
+.input-user-5 {
+    padding: 10px 60px;
+    background-color: #578e8e93;
+}
+
+.button-quanti-pag {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }

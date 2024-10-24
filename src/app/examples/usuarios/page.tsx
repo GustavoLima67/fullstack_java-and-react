@@ -1,5 +1,7 @@
 "use client"
 
+import { CgArrowLeftO } from "react-icons/cg";
+import { CgArrowRightO } from "react-icons/cg";
 import "./style.css";
 
 const Usuarios = () => {
@@ -14,10 +16,10 @@ const Usuarios = () => {
            </div>
             <div className="cadastre-user">
                 <div className="card-new-user">
+                    <div className="text-new-user">
+                        <h1>CADASTRE UM NOVO USUÁRIO</h1>
+                    </div>
                     <div className="inputs-and-texts">
-                        <div className="text-new-user">
-                            <h1>CADASTRE UM NOVO USUÁRIO</h1>
-                        </div>
                         <div className="input-name"> 
                             <input type="text" placeholder="Nome" />
                         </div>
@@ -46,7 +48,48 @@ const Usuarios = () => {
                             <h1>quant. maxíma de usuários permitidos: 20</h1>
                         </div>
                     </div>
-                  
+                </div>
+
+                <div className="read-user">
+                    <div className="text-users-read">
+                        <h1>USUÁRIOS JÁ CADASTRADOS</h1>
+                    </div>
+                    <div className="inputs-read-user">
+                        <div className="input-user-1">
+                            <div className="user-1">
+                                <h1>Gustavo L. Souza</h1>
+                            </div>
+                        </div>
+                        <div className="input-user-2">
+                            <div className="user-2">
+                                <h1>Lucas L. Souza</h1>
+                            </div>
+                        </div>
+                        <div className="input-user-3">
+                            <div className="user-3">
+                                <h1>Josivani L. Moura</h1>
+                            </div>
+                        </div>
+                        <div className="input-user-4">
+                            <div className="user-4">
+                                <h1>Thiago M. Silva</h1>
+                            </div>
+                        </div>
+                        <div className="input-user-5">
+                            <div className="user-5">
+                                <h1>Dhuane M. Silva</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="button-quanti-pag">
+                        <div className="icon-left"> 
+                            <button type="button"><CgArrowLeftO/></button>
+                        </div>
+                        <div className="icon-right"> 
+                            <button type="button"> <CgArrowRightO/></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
