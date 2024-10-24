@@ -149,6 +149,8 @@ input {
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .card-moders-exitents {
@@ -182,4 +184,19 @@ input {
 .moder-2 {
     padding: 10px 60px;
     background-color: #578e8e93;
+}
+
+
+.back {
+    background-color: #93CFD1;
+    padding: 10px 30px;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 0.2px solid black;
+    transition: transform(0.6s);
+}
+
+.back:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
 }
