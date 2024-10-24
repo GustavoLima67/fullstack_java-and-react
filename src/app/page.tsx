@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import axios, { get } from "axios";
-import { useNavigate } from "react-router-dom";
 import { useRouter } from "next/navigation";
 import "./style.css";
 import { Usuarios } from "./interfaces/usuarios";

@@ -4,7 +4,15 @@ import { CgArrowLeftO } from "react-icons/cg";
 import { CgArrowRightO } from "react-icons/cg";
 import "./style.css";
 
+import { useRouter } from "next/navigation";
+
+
+
 const Usuarios = () => {
+    const router = useRouter();
+
+    const clickBack = () => router.back();
+
     return(
         <div className="body">
            <div className="navbar-main">
@@ -91,6 +99,29 @@ const Usuarios = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="card-moders"> 
+                    <div className="card-moders-exitents">
+                        <div className="title-moders">
+                            <h1>MODERADORES PRESENTES</h1>
+                        </div>
+                        <div className="card-text-moders">
+                            <div className="moder-1">
+                                <h1>Alex Silva</h1>
+                            </div>
+                            <div className="moder-2">
+                                <h1>Pedro H. Santos</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="button-back">
+                        <div className="back">
+                            <button onClick={clickBack} type="button">VOLTAR</button>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     )
