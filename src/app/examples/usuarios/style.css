@@ -108,33 +108,27 @@ input {
     flex-direction: column;
     gap: 30px;
     text-align: center;
-    background-color: #b5f0e393;
     padding: 20px ;
 }
 
-.input-user-1 {
-    padding: 10px 60px;
-    background-color: #578e8e93;
+.user-1 {
+    padding: 10px 70px;
 }
 
-.input-user-2 {
+.user-2 {
     padding: 10px 60px;
-    background-color: #578e8e93;
 }
 
-.input-user-3 {
+.user-3 {
     padding: 10px 60px;
-    background-color: #578e8e93;
 }
 
-.input-user-4 {
+.user-4 {
     padding: 10px 60px;
-    background-color: #578e8e93;
 }
 
-.input-user-5 {
+.user-5 {
     padding: 10px 60px;
-    background-color: #578e8e93;
 }
 
 .button-quanti-pag {
@@ -178,12 +172,13 @@ input {
 
 .moder-1 {
     padding: 10px 60px;
-    background-color: #578e8e93;
+
+    background-color: #578e8e;
 }
 
 .moder-2 {
     padding: 10px 60px;
-    background-color: #578e8e93;
+    background-color: #578e8e;
 }
 
 
