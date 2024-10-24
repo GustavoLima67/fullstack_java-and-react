@@ -29,33 +29,38 @@ const Usuarios = () => {
                     </div>
                     <div className="inputs-and-texts">
                         <div className="input-name"> 
-                            <input type="text" placeholder="Nome" />
+                            <input type="text" placeholder="Nome do usuário" />
                         </div>
                         <div className="input-password"> 
-                            <input type="text" placeholder="Senha" />
+                            <input type="text" placeholder="Senha do usuário" />
                         </div>
                         <div className="input-phone"> 
-                            <input type="text" placeholder="Telefone" />
+                            <input type="text" placeholder="Telefone do usuário" />
+                        </div>
+                        <div className="input-phone"> 
+                            <input type="text" placeholder="Cpf do usuário" />
                         </div>
                         <div className="inputs-date"> 
                             <input type="date" />
                         </div>
                     </div>
 
-                    <div className="button-cadastre">
+                    <div className="button-cdt">
                         <div className="cadastre">
-                            <div className="text-cadastre">
-                                <button type="button">CADASTRAR</button>
+                            <button type="button">CADASTRAR</button>
+                        </div>
+                    </div>
+                  
+                    <div className="card-obs">
+                        <div className="obs">
+                            <div className="text-obs">
+                                <h1>obs:</h1>
+                                <h1>quant. miníma de usuários permitidos: 1</h1>
+                                <h1>quant. maxíma de usuários permitidos: 20</h1>
                             </div>
                         </div>
                     </div>
-                    <div className="obs">
-                        <div className="text-obs">
-                            <h1>obs:</h1>
-                            <h1>quant. miníma de usuários permitidos: 1</h1>
-                            <h1>quant. maxíma de usuários permitidos: 20</h1>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <div className="read-user">
@@ -64,27 +69,27 @@ const Usuarios = () => {
                     </div>
                     <div className="inputs-read-user">
                         <div className="input-user-1">
-                            <div className="user-1">
+                            <div className="user-text-1">
                                 <h1>Gustavo L. Souza</h1>
                             </div>
                         </div>
                         <div className="input-user-2">
-                            <div className="user-2">
+                            <div className="user-text-2">
                                 <h1>Lucas L. Souza</h1>
                             </div>
                         </div>
                         <div className="input-user-3">
-                            <div className="user-3">
+                            <div className="user-text-3">
                                 <h1>Josivani L. Moura</h1>
                             </div>
                         </div>
                         <div className="input-user-4">
-                            <div className="user-4">
+                            <div className="user-text-4">
                                 <h1>Thiago M. Silva</h1>
                             </div>
                         </div>
                         <div className="input-user-5">
-                            <div className="user-5">
+                            <div className="user-text-5">
                                 <h1>Dhuane M. Silva</h1>
                             </div>
                         </div>

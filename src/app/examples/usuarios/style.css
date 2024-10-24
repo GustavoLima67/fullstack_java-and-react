@@ -26,9 +26,12 @@
 
 .texts-navbar {
     background-color: #578e8e93;
-    padding: 5px;
+    padding: 10px;
     border-radius: 3px;
+    font-weight: bold;
+    font-size: 25px;
 }
+
 
 .cadastre-user {
     color: black;
@@ -46,41 +49,53 @@
 }
 
 .card-new-user {
-
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
     background-color: #93CFD1;
     display: flex;
     flex-direction: column;
     gap: 30px;
     padding: 40px;
-    align-items: center;
 }
 
 .text-new-user {
     font-size: 20px;
 }
 
-input {
-    padding: 2px 35px 2px 5px;
-   
-}
-
-.button-cadastre {
-    border: 1px  solid black;
-    background-color: #578e8e93;
-    padding: 3px;
-    border-radius: 5px;
-    margin-top: 30px;
+.inputs-and-texts {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: content;
+    padding-inline: 40px;
 }
 
 .text-cadastre {
-    padding: 10px 40px;
+    padding: 5px 10px;
 }
 
-.obs {
+.button-cdt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.cadastre {
+    border-radius: 5px;
+    background-color: #578e8e93;
+    padding: 10px;
+    transition: transform(0.05s);
+}
+
+.cadastre:hover {
+    transform: scale(1.2);  
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
+}
+
+.card-obs {
     font-size: 10px;
     text-align: left;
-    flex-direction: column;
     display: flex;
     justify-content: left;
 }
@@ -111,24 +126,29 @@ input {
     padding: 20px ;
 }
 
-.user-1 {
+.user-text-1 {
     padding: 10px 70px;
+    background-color: #578e8e;
 }
 
-.user-2 {
+.user-text-2 {
     padding: 10px 60px;
+    background-color: #578e8e;
 }
 
-.user-3 {
+.user-text-3 {
     padding: 10px 60px;
+    background-color: #578e8e;
 }
 
-.user-4 {
+.user-text-4 {
     padding: 10px 60px;
+    background-color: #578e8e;
 }
 
-.user-5 {
+.user-text-5 {
     padding: 10px 60px;
+    background-color: #578e8e;
 }
 
 .button-quanti-pag {
@@ -137,6 +157,21 @@ input {
     gap: 30px;
 }
 
+.icon-left {
+    transition: transform(0.4s);
+}
+
+.icon-left:hover {
+    transform: scale(1.1);
+}
+
+.icon-right {
+    transition: transform(0.4s);
+}
+
+.icon-right:hover {
+    transform: scale(1.1);
+}
 /* A partir daqui será a estilização do novo card - MODERADORES PRESENTES */
 
 .card-moders {
