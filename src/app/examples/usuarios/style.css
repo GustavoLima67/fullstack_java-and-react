@@ -11,6 +11,12 @@
     gap: 50px;
 }
 
+button {
+    cursor: pointer;
+    border: none;
+    
+}
+
 .navbar-main {
     background-color: #93CFD1;
     height: 10vh;
@@ -190,6 +196,7 @@
 
 .icon-right {
     transition: transform(0.4s);
+
 }
 
 .icon-right:hover {

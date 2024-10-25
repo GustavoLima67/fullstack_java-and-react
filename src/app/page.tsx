@@ -12,7 +12,17 @@ export default function Home() {
   const router = useRouter();
   
   const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
-  
+  const [usuariosPorPaginas] = useState(3);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+
+  const indexUltimoUsuario = paginaAtual * usuariosPorPaginas;
+  const indexPrimeiroUsuario = indexUltimoUsuario - usuariosPorPaginas;
+  const indexUsuariosExibidos = usuarios.slice(indexPrimeiroUsuario, indexUltimoUsuario);
+
+  const buttonViewMore = () => {  //Função para ir para a proxima pagina
+    if(paginaAtual < Math.ceil(usuarios.length / usuariosPorPaginas )) setPaginaAtual(paginaAtual + 1);
+};
+
 
   useEffect(() => {
     axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios")
@@ -33,7 +43,7 @@ export default function Home() {
 
         <div className="project-area">
           <h1 className="project">PROJETO CADASTRO</h1>
-          <button className="buttonMore">SAIBA MAIS</button>
+          <button type="button" className="buttonMore">SAIBA MAIS</button>
         </div>
       </div>
 
@@ -62,7 +72,7 @@ export default function Home() {
                   </div>))}
                 </ul>
                 <div className="more">
-                  <button className="button-view-more">VER MAIS</button>
+                  <button className="button-view-more" type="button" disabled={paginaAtual === Math.ceil(usuarios.length / usuariosPorPaginas)} onClick={buttonViewMore}>VER MAIS</button>
                 </div>
               </div>
             </div>
@@ -86,10 +96,10 @@ export default function Home() {
               </div>
               <div className="cdt-user_our_adm">
                 <div className="cdt-user">
-                  <button onClick={clickUser} className="button-user">USUÁRIO</button>
+                  <button type="button" onClick={clickUser} className="button-user">USUÁRIO</button>
                 </div>
                 <div className="cdt-adm">
-                  <button onClick={clickModer} className="button-adm">MODERADOR</button>
+                  <button type="button" onClick={clickModer} className="button-adm">MODERADOR</button>
                 </div>
               </div>
             </div>
