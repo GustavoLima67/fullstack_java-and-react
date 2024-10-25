@@ -1,21 +1,18 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import axios, { get} from "axios";
 import { useRouter } from "next/navigation";
-import "./style.css";
-import { PaginatedResponse, Usuarios } from "./interfaces/usuarios";
-import { AxiosResponse } from "axios";
+import { CgProfile } from "react-icons/cg";
 
+import axios from "axios";
+
+import "./style.css";
+import { Usuarios } from "./interfaces/usuarios";
 export default function Home() {
   const router = useRouter();
   
   const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
-  const [paginaAtual, setPaginaAtual] = useState(1);
-  const [totalPagina, setTotalPagina] = useState(1);
-  const limiteUsuarios = 5;
-
-
+  
 
   useEffect(() => {
     axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios")
@@ -23,27 +20,7 @@ export default function Home() {
           .catch(error => console.error("Erro ao pegar usuarios", error));
   });
 
-  //Carregar usuários sempre que a pagina atual mudar
-  useEffect(() => {buscarUsuariosEspecificos(paginaAtual);}, [paginaAtual])
-
-  //Função para buscar usuários de uma página especifica
-  const buscarUsuariosEspecificos = async(page = 1) => {
-    try {
-      const response:  AxiosResponse<PaginatedResponse> = await axios.get("http://localhost:8080/java_developer-GL67/api/usuarios", {params: {page, limiteUsuarios}});
-      setUsuarios(response.data.content);
-      setTotalPagina(response.data.totalPagina);
-    } catch (error) {
-      console.error("Erro ao buscar os usuários");
-    }
-  };
-
-  const proximaPagina = () => {
-    if(paginaAtual < totalPagina) setPaginaAtual(paginaAtual + 1)
-  };
-
-  const anteriorPagina = () => {
-    if(paginaAtual > 1) setPaginaAtual(paginaAtual - 1)
-  };
+  
 
   const clickUser = () => router.push("/examples/usuarios");
   const clickModer = () => router.push("/examples/moderadores");
@@ -62,7 +39,7 @@ export default function Home() {
 
       <div className="container-view">
         <div className="cards-view">
-          <div className="list-users">
+          <div className="title-users">
             <div className="card-text-users">
               <h1>USUARIOS CADASTRADOS</h1>
               
@@ -77,25 +54,12 @@ export default function Home() {
           <div className="user-view">
             <div className="card-users">
               <div className="users-model">
-                <ul>
-                  <div className="user-1">
-                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
-                  </div>
-                  <div className="user-2">
-                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
-                  </div>
-
-                  <div className="user-3">
-                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
-                  </div>
-
-                  <div className="user-4">
-                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
-                  </div>
-
-                  <div className="user-5">
-                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
-                  </div>
+                <ul className="list-users">
+                {usuarios.map((usuario, index) => (
+                  <div className={`user-${index + 1}`} key={usuario.id}>
+                    <div className="icon-profile"><CgProfile/></div>
+                    <li>{usuario.nome}</li>
+                  </div>))}
                 </ul>
                 <div className="more">
                   <button className="button-view-more">VER MAIS</button>

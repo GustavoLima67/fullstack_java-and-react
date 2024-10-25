@@ -69,7 +69,7 @@
 
 }
 
-.list-users {
+.title-users {
     background-color: #93CFD1;
     border: 1px solid black;
     padding: 20px 30px;
@@ -86,6 +86,39 @@
     justify-content: space-between;
     display: flex;
     
+}
+
+.list-users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+
+}
+
+.icon-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.user-2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.user-3 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .container-monitor {

@@ -1,18 +1,48 @@
 "use client"
 
+
+import { useEffect, useState } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
 import { CgArrowRightO } from "react-icons/cg";
 import "./style.css";
-
+import axios from "axios";
 import { useRouter } from "next/navigation";
 
+import { paginaResponsiva, Usuarios } from "@/app/interfaces/usuarios";
 
-const Usuarios = () => {
+const PageUsuarios = () => {
+
     const router = useRouter();
 
-    const paginaAnterior = () => {}
-    const paginaPosterior = () => {}
+    const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
 
+    const [paginaAtual, setPaginaAtual] = useState(1);
+    const [totalPagina, setTotalPagina] = useState(1);
+    const limiteUsuarios = 5;
+
+    //Carregar usuários sempre que a pagina atual mudar
+    useEffect(() => {buscarUsuariosEspecificos(paginaAtual);}, [paginaAtual])
+
+    //Função para buscar usuários de uma página especifica
+    const buscarUsuariosEspecificos = async(page = 1) => {
+    try {
+      const response = await axios.get<paginaResponsiva>("http://localhost:8080/java_developer-GL67/api/usuarios", {params: {page, limiteUsuarios}});
+      setUsuarios(response.data.content);
+      setTotalPagina(response.data.totalPaginas);
+    } catch (error) {
+      console.error("Erro ao buscar os usuários");
+    }
+  };
+
+    //Função para ir para a proxima pagina
+    const proximaPagina = () => {
+        if(paginaAtual < totalPagina) setPaginaAtual(paginaAtual + 1)
+    };
+
+    //Função para ir para pagina anterior
+    const anteriorPagina = () => {
+        if(paginaAtual > 1) setPaginaAtual(paginaAtual - 1)
+    };
 
     const clickBack = () => router.back();
 
@@ -100,10 +130,10 @@ const Usuarios = () => {
 
                     <div className="button-quanti-pag">
                         <div className="icon-left"> 
-                            <button onClick={paginaAnterior} type="button"><CgArrowLeftO/></button>
+                            <button onClick={anteriorPagina} type="button"><CgArrowLeftO/></button>
                         </div>
                         <div className="icon-right"> 
-                            <button onClick={paginaPosterior} type="button"> <CgArrowRightO/></button>
+                            <button onClick={proximaPagina} type="button"> <CgArrowRightO/></button>
                         </div>
                     </div>
                 </div>
@@ -135,4 +165,4 @@ const Usuarios = () => {
     )
 }
 
-export default Usuarios;
+export default PageUsuarios;
