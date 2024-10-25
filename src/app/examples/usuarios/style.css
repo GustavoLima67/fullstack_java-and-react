@@ -126,27 +126,50 @@
     padding: 20px ;
 }
 
-.user-text-1 {
+.list-users-icons {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.input-user-1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     padding: 10px 70px;
     background-color: #578e8e;
 }
 
-.user-text-2 {
+.input-user-2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     padding: 10px 60px;
     background-color: #578e8e;
 }
 
-.user-text-3 {
+.input-user-3 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     padding: 10px 60px;
     background-color: #578e8e;
 }
 
-.user-text-4 {
+.input-user-4 {
+    justify-content: center;
+    gap: 20px;
+    display: flex;
     padding: 10px 60px;
     background-color: #578e8e;
 }
 
-.user-text-5 {
+.input-user-5 {
+    justify-content: center;
+    gap: 20px;
+    display: flex;
     padding: 10px 60px;
     background-color: #578e8e;
 }

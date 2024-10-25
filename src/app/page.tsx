@@ -58,7 +58,7 @@ export default function Home() {
                 {usuarios.map((usuario, index) => (
                   <div className={`user-${index + 1}`} key={usuario.id}>
                     <div className="icon-profile"><CgProfile/></div>
-                    <li>{usuario.nome}</li>
+                    <li><h1>{usuario.nome}</h1></li>
                   </div>))}
                 </ul>
                 <div className="more">

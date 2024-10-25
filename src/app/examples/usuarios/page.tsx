@@ -2,8 +2,8 @@
 
 
 import { useEffect, useState } from "react";
-import { CgArrowLeftO } from "react-icons/cg";
-import { CgArrowRightO } from "react-icons/cg";
+import { CgArrowLeftO, CgArrowRightO, CgProfile } from "react-icons/cg";
+
 import "./style.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -16,31 +16,28 @@ const PageUsuarios = () => {
 
     const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
 
+    useEffect(() => {
+        axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios")
+              .then(response => setUsuarios(response.data))
+              .catch(error => console.error("Erro ao pegar usuarios", error));
+      });
+    
+
     const [paginaAtual, setPaginaAtual] = useState(1);
     const [totalPagina, setTotalPagina] = useState(1);
-    const limiteUsuarios = 5;
+    const [usuariosPorPaginas] = useState(5);
 
-    //Carregar usuários sempre que a pagina atual mudar
-    useEffect(() => {buscarUsuariosEspecificos(paginaAtual);}, [paginaAtual])
+    const indexUltimoUsuario = paginaAtual * usuariosPorPaginas;
+    const indexPrimeiroUsuario = indexUltimoUsuario - usuariosPorPaginas;
+    const indexUsuariosExibidos = usuarios.slice(indexPrimeiroUsuario, indexUltimoUsuario);
 
-    //Função para buscar usuários de uma página especifica
-    const buscarUsuariosEspecificos = async(page = 1) => {
-    try {
-      const response = await axios.get<paginaResponsiva>("http://localhost:8080/java_developer-GL67/api/usuarios", {params: {page, limiteUsuarios}});
-      setUsuarios(response.data.content);
-      setTotalPagina(response.data.totalPaginas);
-    } catch (error) {
-      console.error("Erro ao buscar os usuários");
-    }
-  };
-
-    //Função para ir para a proxima pagina
-    const proximaPagina = () => {
-        if(paginaAtual < totalPagina) setPaginaAtual(paginaAtual + 1)
+   
+    const proximaPagina = () => {  //Função para ir para a proxima pagina
+        if(paginaAtual < Math.ceil(usuarios.length / usuariosPorPaginas )) setPaginaAtual(paginaAtual + 1);
     };
 
-    //Função para ir para pagina anterior
-    const anteriorPagina = () => {
+    
+    const anteriorPagina = () => { //Função para ir para pagina anterior
         if(paginaAtual > 1) setPaginaAtual(paginaAtual - 1)
     };
 
@@ -101,39 +98,25 @@ const PageUsuarios = () => {
                         <h1>USUÁRIOS JÁ CADASTRADOS</h1>
                     </div>
                     <div className="inputs-read-user">
-                        <div className="input-user-1">
-                            <div className="user-text-1">
-                                <h1>Gustavo L. Souza</h1>
-                            </div>
-                        </div>
-                        <div className="input-user-2">
-                            <div className="user-text-2">
-                                <h1>Lucas L. Souza</h1>
-                            </div>
-                        </div>
-                        <div className="input-user-3">
-                            <div className="user-text-3">
-                                <h1>Josivani L. Moura</h1>
-                            </div>
-                        </div>
-                        <div className="input-user-4">
-                            <div className="user-text-4">
-                                <h1>Thiago M. Silva</h1>
-                            </div>
-                        </div>
-                        <div className="input-user-5">
-                            <div className="user-text-5">
-                                <h1>Dhuane M. Silva</h1>
-                            </div>
+                        <div className="list-users-icons">
+                            <ul className="list-users">
+                                {usuarios.map((usuario, index) => (
+                                <div className={`input-user-${index + 1}`} key={usuario.id}>
+                                    <div className="icon-profile">
+                                        <CgProfile/>
+                                    </div>   
+                                    <li><h1>{usuario.nome}</h1></li>
+                                </div>))}
+                            </ul>
                         </div>
                     </div>
 
                     <div className="button-quanti-pag">
                         <div className="icon-left"> 
-                            <button onClick={anteriorPagina} type="button"><CgArrowLeftO/></button>
+                            <button onClick={anteriorPagina} type="button" disabled={paginaAtual === 1}><CgArrowLeftO/></button>
                         </div>
                         <div className="icon-right"> 
-                            <button onClick={proximaPagina} type="button"> <CgArrowRightO/></button>
+                            <button onClick={proximaPagina} type="button" disabled={paginaAtual === Math.ceil(usuarios.length / usuariosPorPaginas)}> <CgArrowRightO/></button>
                         </div>
                     </div>
                 </div>
