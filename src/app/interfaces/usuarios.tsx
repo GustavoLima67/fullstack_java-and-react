@@ -6,3 +6,7 @@ export interface Usuarios {
     data_nascimento: Date
   };
   
+  export interface PaginatedResponse {
+    content: Usuarios[]; 
+    totalPaginas: number;  
+  }

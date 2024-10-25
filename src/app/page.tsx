@@ -1,22 +1,49 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import axios, { get } from "axios";
+import axios, { get} from "axios";
 import { useRouter } from "next/navigation";
 import "./style.css";
-import { Usuarios } from "./interfaces/usuarios";
-
+import { PaginatedResponse, Usuarios } from "./interfaces/usuarios";
+import { AxiosResponse } from "axios";
 
 export default function Home() {
   const router = useRouter();
   
   const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const [totalPagina, setTotalPagina] = useState(1);
+  const limiteUsuarios = 5;
+
+
 
   useEffect(() => {
     axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios")
           .then(response => setUsuarios(response.data))
           .catch(error => console.error("Erro ao pegar usuarios", error));
   });
+
+  //Carregar usuários sempre que a pagina atual mudar
+  useEffect(() => {buscarUsuariosEspecificos(paginaAtual);}, [paginaAtual])
+
+  //Função para buscar usuários de uma página especifica
+  const buscarUsuariosEspecificos = async(page = 1) => {
+    try {
+      const response:  AxiosResponse<PaginatedResponse> = await axios.get("http://localhost:8080/java_developer-GL67/api/usuarios", {params: {page, limiteUsuarios}});
+      setUsuarios(response.data.content);
+      setTotalPagina(response.data.totalPagina);
+    } catch (error) {
+      console.error("Erro ao buscar os usuários");
+    }
+  };
+
+  const proximaPagina = () => {
+    if(paginaAtual < totalPagina) setPaginaAtual(paginaAtual + 1)
+  };
+
+  const anteriorPagina = () => {
+    if(paginaAtual > 1) setPaginaAtual(paginaAtual - 1)
+  };
 
   const clickUser = () => router.push("/examples/usuarios");
   const clickModer = () => router.push("/examples/moderadores");
@@ -50,21 +77,26 @@ export default function Home() {
           <div className="user-view">
             <div className="card-users">
               <div className="users-model">
-                <div className="user-1">
-                  <h1>Gustavo L. Souza</h1>
-                </div>
-                <div className="user-2">
-                  <h1>Lucas L. Souza</h1>
-                </div>
-                <div className="user-3">
-                  <h1>Josivani L. Moura</h1>
-                </div>
-                <div className="user-4">
-                  <h1>Thiago M. Silva</h1>
-                </div>
-                <div className="user-5">
-                  <h1>Dhuane M. Silva</h1>
-                </div>
+                <ul>
+                  <div className="user-1">
+                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
+                  </div>
+                  <div className="user-2">
+                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
+                  </div>
+
+                  <div className="user-3">
+                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
+                  </div>
+
+                  <div className="user-4">
+                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
+                  </div>
+
+                  <div className="user-5">
+                    {usuarios.map((usuario) => (<li key={usuario.id}>{usuario.nome}</li>))}
+                  </div>
+                </ul>
                 <div className="more">
                   <button className="button-view-more">VER MAIS</button>
                 </div>

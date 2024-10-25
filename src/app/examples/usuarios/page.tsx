@@ -7,9 +7,12 @@ import "./style.css";
 import { useRouter } from "next/navigation";
 
 
-
 const Usuarios = () => {
     const router = useRouter();
+
+    const paginaAnterior = () => {}
+    const paginaPosterior = () => {}
+
 
     const clickBack = () => router.back();
 
@@ -97,10 +100,10 @@ const Usuarios = () => {
 
                     <div className="button-quanti-pag">
                         <div className="icon-left"> 
-                            <button type="button"><CgArrowLeftO/></button>
+                            <button onClick={paginaAnterior} type="button"><CgArrowLeftO/></button>
                         </div>
                         <div className="icon-right"> 
-                            <button type="button"> <CgArrowRightO/></button>
+                            <button onClick={paginaPosterior} type="button"> <CgArrowRightO/></button>
                         </div>
                     </div>
                 </div>
