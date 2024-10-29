@@ -8,41 +8,65 @@ import "./style.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-import { paginaResponsiva, Usuarios } from "@/app/interfaces/usuarios";
+import { Administradores, Usuarios } from "@/app/interfaces/cadastro";
+
+import { proximaPagina, anteriorPagina } from "@/app/components/navegarPaginas";
 
 const PageUsuarios = () => {
 
     const router = useRouter();
 
     const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
+    const [administradores, setAdministradores] = useState<Administradores[]>([]);
 
     useEffect(() => {
         axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios")
               .then(response => setUsuarios(response.data))
               .catch(error => console.error("Erro ao pegar usuarios", error));
       });
-    
 
     const [paginaAtual, setPaginaAtual] = useState(1);
     const [totalPagina, setTotalPagina] = useState(1);
     const [usuariosPorPaginas] = useState(5);
+
+    const [nome, setNome] = useState("");
+    const [senha, setSenha] = useState("");
+    const [email, setEmail] = useState("");
+    const [data_nascimento, setDataNascimento] = useState(Date);
 
     const indexUltimoUsuario = paginaAtual * usuariosPorPaginas;
     const indexPrimeiroUsuario = indexUltimoUsuario - usuariosPorPaginas;
     const indexUsuariosExibidos = usuarios.slice(indexPrimeiroUsuario, indexUltimoUsuario);
 
    
-    const proximaPagina = () => {  //Função para ir para a proxima pagina
-        if(paginaAtual < Math.ceil(usuarios.length / usuariosPorPaginas )) setPaginaAtual(paginaAtual + 1);
-    };
-
-    
-    const anteriorPagina = () => { //Função para ir para pagina anterior
-        if(paginaAtual > 1) setPaginaAtual(paginaAtual - 1)
-    };
+    const nextPage = () => proximaPagina();
+    const backPage = () => anteriorPagina();
 
     const clickBack = () => router.back();
 
+    const limparCampos = () => {
+        setNome("");
+        setSenha("");
+        setEmail("");
+        setDataNascimento("");
+      };
+    
+    const cadastrarUsuario = async () => { // Função para cadastrar um novo usuário
+        try {
+            const novoUsuario = { nome, senha, email, data_nascimento };
+            await axios.post("http://localhost:8080/java_developer-GL67/cadastrar", novoUsuario);
+            setNome("");
+            setSenha("");
+            setEmail("");
+            setDataNascimento("");
+
+            limparCampos();
+            const response = await axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios"); // Recarrega a lista de usuários
+            setUsuarios(response.data);
+        } catch (error) {
+            console.error("Erro ao cadastrar usuário:", error);
+        }
+    };
     return(
         <div className="body">
            <div className="navbar-main">
@@ -59,25 +83,22 @@ const PageUsuarios = () => {
                     </div>
                     <div className="inputs-and-texts">
                         <div className="input-name"> 
-                            <input type="text" placeholder="Nome do usuário" />
+                            <input type="text" placeholder="Nome do usuário" value={nome} onChange={(e) => setNome(e.target.value)}/>
                         </div>
                         <div className="input-password"> 
-                            <input type="text" placeholder="Senha do usuário" />
+                            <input type="password" placeholder="Senha do usuário" value={senha}  onChange={(e) => setSenha(e.target.value)} />
                         </div>
-                        <div className="input-phone"> 
-                            <input type="text" placeholder="Telefone do usuário" />
+                        <div className="input-email"> 
+                            <input type="email" placeholder="Email do usuário" value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
-                        <div className="input-phone"> 
-                            <input type="text" placeholder="Cpf do usuário" />
-                        </div>
-                        <div className="inputs-date"> 
-                            <input type="date" />
+                        <div className="inputs-date" > 
+                            <input type="date" value={data_nascimento} onChange={(e) => setDataNascimento(e.target.value)}/>
                         </div>
                     </div>
 
                     <div className="button-cdt">
                         <div className="cadastre">
-                            <button type="button">CADASTRAR</button>
+                            <button onClick={cadastrarUsuario} type="button">CADASTRAR</button>
                         </div>
                     </div>
                   
@@ -113,10 +134,10 @@ const PageUsuarios = () => {
 
                     <div className="button-quanti-pag">
                         <div className="icon-left"> 
-                            <button onClick={anteriorPagina} type="button" disabled={paginaAtual === 1}><CgArrowLeftO/></button>
+                            <button onClick={nextPage} type="button" disabled={paginaAtual === 1}><CgArrowLeftO/></button>
                         </div>
                         <div className="icon-right"> 
-                            <button onClick={proximaPagina} type="button" disabled={paginaAtual === Math.ceil(usuarios.length / usuariosPorPaginas)}> <CgArrowRightO/></button>
+                            <button onClick={backPage} type="button" disabled={paginaAtual === Math.ceil(usuarios.length / usuariosPorPaginas)}> <CgArrowRightO/></button>
                         </div>
                     </div>
                 </div>

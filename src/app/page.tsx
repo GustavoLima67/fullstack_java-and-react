@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import axios from "axios";
 
 import "./style.css";
-import { Usuarios } from "./interfaces/usuarios";
+import { Usuarios } from "./interfaces/cadastro";
 export default function Home() {
   const router = useRouter();
   
