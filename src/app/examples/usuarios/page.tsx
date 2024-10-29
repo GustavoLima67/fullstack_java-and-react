@@ -6,67 +6,18 @@ import { CgArrowLeftO, CgArrowRightO, CgProfile } from "react-icons/cg";
 
 import "./style.css";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 
 import { Administradores, Usuarios } from "@/app/interfaces/cadastro";
-
-import { proximaPagina, anteriorPagina } from "@/app/components/navegarPaginas";
+import { proximaPagina, anteriorPagina, clickBack, paginaAtual, usuariosPorPaginas } from "@/app/components/navegarPaginas";
+import { pegandoUsers } from "@/app/components/apiJava";
+import { cadastrarUsuario, nome, senha, email, data_nascimento, setNome, setSenha, setEmail, setDataNascimento } from "@/app/components/cadastrarUsers";
 
 const PageUsuarios = () => {
-
-    const router = useRouter();
-
     const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
-    const [administradores, setAdministradores] = useState<Administradores[]>([]);
 
-    useEffect(() => {
-        axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios")
-              .then(response => setUsuarios(response.data))
-              .catch(error => console.error("Erro ao pegar usuarios", error));
-      });
+    useEffect(() => pegandoUsers());
 
-    const [paginaAtual, setPaginaAtual] = useState(1);
-    const [totalPagina, setTotalPagina] = useState(1);
-    const [usuariosPorPaginas] = useState(5);
 
-    const [nome, setNome] = useState("");
-    const [senha, setSenha] = useState("");
-    const [email, setEmail] = useState("");
-    const [data_nascimento, setDataNascimento] = useState(Date);
-
-    const indexUltimoUsuario = paginaAtual * usuariosPorPaginas;
-    const indexPrimeiroUsuario = indexUltimoUsuario - usuariosPorPaginas;
-    const indexUsuariosExibidos = usuarios.slice(indexPrimeiroUsuario, indexUltimoUsuario);
-
-   
-    const nextPage = () => proximaPagina();
-    const backPage = () => anteriorPagina();
-
-    const clickBack = () => router.back();
-
-    const limparCampos = () => {
-        setNome("");
-        setSenha("");
-        setEmail("");
-        setDataNascimento("");
-      };
-    
-    const cadastrarUsuario = async () => { // Função para cadastrar um novo usuário
-        try {
-            const novoUsuario = { nome, senha, email, data_nascimento };
-            await axios.post("http://localhost:8080/java_developer-GL67/cadastrar", novoUsuario);
-            setNome("");
-            setSenha("");
-            setEmail("");
-            setDataNascimento("");
-
-            limparCampos();
-            const response = await axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios"); // Recarrega a lista de usuários
-            setUsuarios(response.data);
-        } catch (error) {
-            console.error("Erro ao cadastrar usuário:", error);
-        }
-    };
     return(
         <div className="body">
            <div className="navbar-main">
@@ -134,10 +85,10 @@ const PageUsuarios = () => {
 
                     <div className="button-quanti-pag">
                         <div className="icon-left"> 
-                            <button onClick={nextPage} type="button" disabled={paginaAtual === 1}><CgArrowLeftO/></button>
+                            <button onClick={proximaPagina} type="button" disabled={paginaAtual === 1}><CgArrowLeftO/></button>
                         </div>
                         <div className="icon-right"> 
-                            <button onClick={backPage} type="button" disabled={paginaAtual === Math.ceil(usuarios.length / usuariosPorPaginas)}> <CgArrowRightO/></button>
+                            <button onClick={anteriorPagina} type="button" disabled={paginaAtual === Math.ceil(usuarios.length / usuariosPorPaginas)}> <CgArrowRightO/></button>
                         </div>
                     </div>
                 </div>
