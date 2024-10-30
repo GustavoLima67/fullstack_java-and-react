@@ -1,17 +1,9 @@
 "use client"
 
-
 import { useEffect, useState } from "react";
-
-import { useRouter } from "next/navigation";
-
-import { Administradores, Usuarios } from "@/app/interfaces/cadastro";
-
-
-const router = useRouter();
+import { Usuarios } from "@/app/interfaces/cadastro";
 
 const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
-const [administradores, setAdministradores] = useState<Administradores[]>([]);
 
 export const pegandoUsers = () => {
     useEffect(() => {

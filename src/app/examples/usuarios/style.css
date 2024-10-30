@@ -117,6 +117,7 @@ button {
     flex-direction: column;
     gap: 20px;
     display: flex;
+    align-items: center;
 }
 
 .text-users-read {
@@ -124,19 +125,14 @@ button {
     font-size: 20px;
 }
 
-.inputs-read-user {
+.all-users{
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    text-align: center;
-    padding: 20px ;
+    gap: 20px;
 }
 
 .list-users-icons {
-    display: flex;
-    padding: 20px;
-    justify-content: space-between;
-    align-items: center;
+    gap: 40px;
 
 }
 
@@ -146,6 +142,7 @@ button {
     gap: 20px;
     padding: 10px 70px;
     background-color: #578e8e;
+    align-items: center;
 }
 
 .input-user-2 {
@@ -154,6 +151,7 @@ button {
     gap: 20px;
     padding: 10px 60px;
     background-color: #578e8e;
+    align-items: center;
 }
 
 .input-user-3 {
@@ -162,6 +160,7 @@ button {
     gap: 20px;
     padding: 10px 60px;
     background-color: #578e8e;
+    align-items: center;
 }
 
 .input-user-4 {
@@ -170,6 +169,7 @@ button {
     display: flex;
     padding: 10px 60px;
     background-color: #578e8e;
+    align-items: center;
 }
 
 .input-user-5 {
@@ -178,6 +178,7 @@ button {
     display: flex;
     padding: 10px 60px;
     background-color: #578e8e;
+    align-items: center;
 }
 
 .button-quanti-pag {
@@ -220,6 +221,7 @@ button {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
     gap: 20px;
     align-items: center;
+    justify-content: center;
 }
 
 .title-moders {
@@ -235,17 +237,29 @@ button {
     gap: 20px;
 }
 
-.moder-1 {
-    padding: 10px 60px;
-
-    background-color: #578e8e;
+.all-moders {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.moder-2 {
-    padding: 10px 60px;
+.input-moders-1 {
     background-color: #578e8e;
+    text-align: center;
+    padding: 10px 70px;
 }
 
+.input-moders-2 {
+    background-color: #578e8e;
+    text-align: center;
+    padding: 10px 70px;
+}
+
+.input-moders-3 {
+    background-color: #578e8e;
+    text-align: center;
+    padding: 10px 70px;
+}
 
 .back {
     background-color: #93CFD1;

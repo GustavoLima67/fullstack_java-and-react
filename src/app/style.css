@@ -167,12 +167,28 @@
 
 }
 
-.admin-1 {
+.list-moders {
+    display: flex;
+    flex-direction: column;
+}
+
+.all-moders {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-moders-1 {
     background-color: #578E8E;
     padding: 10px;
 }
 
-.admin-2 {
+.input-moders-2 {
+    background-color: #578E8E;
+    padding: 10px;
+}
+
+.input-moders-3 {
     background-color: #578E8E;
     padding: 10px;
 }

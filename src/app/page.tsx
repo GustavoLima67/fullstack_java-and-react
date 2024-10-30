@@ -1,17 +1,20 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CgProfile } from "react-icons/cg";
 
 import axios from "axios";
 
 import "./style.css";
-import { Usuarios } from "./interfaces/cadastro";
+import { Usuarios, Administradores } from "./interfaces/cadastro";
+import { fetchModeradores, fetchUsuarios } from "./TS/apiService";
 export default function Home() {
   const router = useRouter();
   
   const [usuarios, setUsuarios] = useState<Usuarios[]>([]);
+  const [Administradores, setAdministradores] = useState<Administradores[]>([]);
+
   const [usuariosPorPaginas] = useState(3);
   const [paginaAtual, setPaginaAtual] = useState(1);
 
@@ -24,12 +27,27 @@ export default function Home() {
 };
 
 
-  useEffect(() => {
-    axios.get<Usuarios[]>("http://localhost:8080/java_developer-GL67/api/usuarios")
-          .then(response => setUsuarios(response.data))
-          .catch(error => console.error("Erro ao pegar usuarios", error));
-  });
+  const carregarUsuarios = useCallback(async () => {
+    try {
+    const data = await fetchUsuarios();
+    setUsuarios(data);
+    } catch (error) {
+    console.error("Erro ao carregar usuários:", error);
+    }
+  }, []);
 
+  
+  const carregarModeradores = useCallback(async () => {
+    try {
+    const data = await fetchModeradores();
+    setAdministradores(data);
+    } catch (error) {
+    console.error("Erro ao carregar moderadores:", error);
+    }
+}, []);
+
+  useEffect(() => { carregarUsuarios() }, [carregarUsuarios]);
+  useEffect(() => { carregarModeradores() }, [carregarModeradores]);
   
 
   const clickUser = () => router.push("/examples/usuarios");
@@ -81,12 +99,14 @@ export default function Home() {
           <div className="admins-and-cdt">
             <div className="card-admins">
               <div className="admin-model">
-                <div className="admin-1">
-                  <h1>Alex M. Santos</h1>
-                </div>
-                <div className="admin-2">
-                  <h1>Henrrique Silva</h1>
-                </div>
+                <ul className="list-moders">
+                  <div className="all-moders">
+                      {Administradores.map((Administradores, index) => (
+                      <div className={`input-moders-${index + 1}`} key={Administradores.id}>
+                          <li><h1>{Administradores.nome}</h1></li>
+                      </div>))}
+                  </div>
+                </ul>
               </div>
             </div>
 
@@ -116,3 +136,7 @@ export default function Home() {
     </div>
   );
 }
+function setAdministradores(data: import("./interfaces/cadastro").Administradores[]) {
+  throw new Error("Function not implemented.");
+}
+
