@@ -122,7 +122,7 @@
 }
 
 .container-monitor {
-    gap: 50px;
+    gap: 48px;
     font-size: 20px;
     color: black;
     display: flex;
@@ -132,16 +132,16 @@
     background-color: #93CFD1;
     border: 1px solid black;
     text-align: center;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 1);
-    padding: 20px 38px 10px;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 1);
+    padding: 20px 29px 10px;
 }
 
 .card-admins {
     background-color: #93CFD1;
     border: 1px solid black;
     text-align: center;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 1);
-    padding: 20px 38px;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 1);
+    padding: 20px 29px;
 }
 
 .admin-model {
@@ -165,22 +165,10 @@
     padding: 20px;
     border-radius: 20px;
 
-}
-
-.list-moders {
-    display: flex;
-    flex-direction: column;
-}
-
-.all-moders {
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-}
+} 
 
 .input-moders-1 {
     background-color: #578E8E;
-    padding: 10px;
 }
 
 .input-moders-2 {
@@ -203,7 +191,7 @@
 
 .user-1 {
     background-color: #578E8E;
-    padding: 10px 40px;
+    padding: 10px 38px;
 }
 
 .user-2 {
