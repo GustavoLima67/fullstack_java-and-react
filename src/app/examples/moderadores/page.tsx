@@ -1,8 +1,8 @@
-
+import "./style.css"
 
 const Moderadores = () => {
     return(
-        <div>
+        <div className="body">
             <h1>Hello World</h1>
         </div>
     )
