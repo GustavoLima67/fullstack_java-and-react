@@ -6,6 +6,65 @@
     height: 100vh;
     overflow-x: hidden;
     box-sizing: border-box;
-    
+    color: black;
+}
 
+.main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card-main {
+    background-color: #93CFD1;
+    box-shadow: 1px 3px 4px gray;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cards-mains {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-cadastre {
+    border: 1px solid black;
+    background-color: #93CFD1;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.card-moders-gifts {
+    background-color: #93CFD1;
+    border: 1px solid black;
+    height: 60vh;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.card-moders-inserted {
+    background-color: #93CFD1;
+    border: 1px solid black;
+    height: 25vh;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    border-radius: 5px;
 }
