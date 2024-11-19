@@ -29,7 +29,13 @@ const Moderadores = () => {
                         </div>
                     </div>
                     <div className="card-moders-gifts">
-                        <h1>MODERADORES PRESENTES</h1>
+                        <h1 className="textTitle-card-moder">MODERADORES PRESENTES</h1>
+                        <div className="inputs-moders-exitents">
+                            <div className="input-moders-1"></div>
+                            <div className="input-moders-2"></div>
+                            <div className="input-moders-3"></div>
+                            <div className="input-moders-4"></div>
+                        </div>
                     </div>
                     <div className="card-moders-inserted">
                         <h1>MODERADORES INSERIDOS</h1>

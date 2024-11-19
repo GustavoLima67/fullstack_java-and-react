@@ -52,9 +52,34 @@
 .card-moders-gifts {
     background-color: #93CFD1;
     border: 1px solid black;
-    height: 60vh;
+    height: 40vh;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     border-radius: 5px;
+}
+
+.inputs-moders-exitents {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-moders-1 {
+    background-color: #578e8e93;
+}
+
+.input-moders-2 {
+    background-color: #578e8e93;
+}
+
+.input-moders-3 {
+    background-color: #578e8e93;
+}
+
+.input-moders-4 {
+    background-color: #578e8e93;
 }
 
 .card-moders-inserted {
